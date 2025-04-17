@@ -10,15 +10,29 @@ function ColorPicker(){
     const [darkMode, setDarkMode] = useState();
     
 
+    //Toggle Dark mode/Light mode
+    useEffect(() => {
+        document.body.style.backgroundColor = darkMode ? "#222" : "#fff";
+        document.body.style.color = darkMode ? "#eee" : "#000";}, [darkMode]);
+
 
     const handleColorChange = (event) => setColor(event.target.value);
-
     const handleSecondColorChange = (event) => setColor2(event.target.value);
 
+    //Generating a random color
     const generateRandomColor = () =>
         setColor(`#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0")}`);
         
     const copyToClipboard = () => navigator.clipboard.writeText(color);
+
+    //Favorites
+    const toggleFavorites = () => {
+        if(Favorites.includes(color)){
+            setFavorites(Favorites.filter((fav) => fav !== color));
+        }else{
+            setFavorites([...Favorites,color]);
+        }
+    };
 
     const getContrastColor = (hex) => tinycolor(hex).isLight()? '#000' : '#fff';
     const getColorName = (hex) => tinycolor(hex).toName() || 'Unknown';
