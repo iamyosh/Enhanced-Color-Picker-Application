@@ -7,13 +7,14 @@ function ColorPicker(){
     const [color2, setColor2] = useState("#000000");
     const [colorHistory, setColorHistory] = useState([]);
     const [Favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem("Favorites")) || []);
-    const [darkMode, setDarkMode] = useState();
+    const [darkMode, setDarkMode] = useState(false);
     
 
     //Toggle Dark mode/Light mode
     useEffect(() => {
         document.body.style.backgroundColor = darkMode ? "#222" : "#fff";
-        document.body.style.color = darkMode ? "#eee" : "#000";}, [darkMode]);
+        document.body.style.color = darkMode ? "#eee" : "#000";
+    }, [darkMode]);
 
     //set color history
     useEffect(() => {
@@ -21,7 +22,7 @@ function ColorPicker(){
             setColorHistory((prev) => [color, ...prev, slice(0,5)]);
         }
     }, [color]);
-    
+
 
 
     const handleColorChange = (event) => setColor(event.target.value);
