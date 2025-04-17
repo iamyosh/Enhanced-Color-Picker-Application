@@ -23,6 +23,10 @@ function ColorPicker(){
         }
     }, [color]);
 
+    //adding useEffect for Favorites
+    useEffect(() => {
+        localStorage.setItem("Favorites", JSON.stringify(Favorites));
+    }, [Favorites]);
 
 
     const handleColorChange = (event) => setColor(event.target.value);
