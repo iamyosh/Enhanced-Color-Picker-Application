@@ -81,11 +81,17 @@ function ColorPicker(){
                 ))} 
             </div>
 
-        <div style={{ display: "flex", gap: "10px" }}>
-            {Favorites.map((fav, index) => (
-                <button key={index} style={{ backgroundColor: fav, width: "30px", height: "30px", border: "2px solid gold" }} onClick={() => setColor(fav)}/>
+
+            <h3>Favorites</h3>
+            <div style={{display:"flex", gap: "10px"}}>
+                {Favorites.map((fav,index) => (
+                    <button key={index} style={{backgroundColor: fav, width: "30px", height:"30px", border:"2px solid gold"}} onClick={() => setColor(fav)}></button>
                 ))}
-        </div>
+                </div>
+
+                <h3>Gradient View</h3>
+                <label>Second Color: </label>
+            </div>
 
     );
 
