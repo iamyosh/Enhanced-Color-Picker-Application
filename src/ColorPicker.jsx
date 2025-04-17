@@ -2,105 +2,142 @@ import React, {useState, useEffect} from "react"
 import tinycolor from "tinycolor2";
 
 function ColorPicker(){
-
     const [color, setColor] = useState("#FFFFFF");
     const [color2, setColor2] = useState("#000000");
     const [colorHistory, setColorHistory] = useState([]);
-    const [Favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem("Favorites")) || []);
+    const [favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem("Favorites")) || []);
     const [darkMode, setDarkMode] = useState(false);
     
-
-    //Toggle Dark mode/Light mode
+    // Toggle Dark mode/Light mode
     useEffect(() => {
-        document.body.style.backgroundColor = darkMode ? "#222" : "#fff";
-        document.body.style.color = darkMode ? "#eee" : "#000";
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
     }, [darkMode]);
 
-    //set color history
+    // Set color history
     useEffect(() => {
         if(!colorHistory.includes(color)){
-            setColorHistory((prev) => [color, ...prev, slice(0,4)]);
+            setColorHistory((prev) => [color, ...prev.slice(0,4)]);
         }
     }, [color]);
 
-    //adding useEffect for Favorites
+    // Save favorites to localStorage
     useEffect(() => {
-        localStorage.setItem("Favorites", JSON.stringify(Favorites));
-    }, [Favorites]);
-
+        localStorage.setItem("Favorites", JSON.stringify(favorites));
+    }, [favorites]);
 
     const handleColorChange = (event) => setColor(event.target.value);
     const handleSecondColorChange = (event) => setColor2(event.target.value);
 
-    //Generating a random color
+    // Generating a random color
     const generateRandomColor = () =>
         setColor(`#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0")}`);
         
-    const copyToClipboard = () => navigator.clipboard.writeText(color);
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(color);
+        alert(`Copied ${color} to clipboard!`);
+    };
 
-    //Favorites
+    // Favorites
     const toggleFavorites = () => {
-        if(Favorites.includes(color)){
-            setFavorites(Favorites.filter((fav) => fav !== color));
+        if(favorites.includes(color)){
+            setFavorites(favorites.filter((fav) => fav !== color));
         }else{
-            setFavorites([...Favorites,color]);
+            setFavorites([...favorites, color]);
         }
     };
 
-    const getContrastColor = (hex) => tinycolor(hex).isLight()? '#000' : '#fff';
-    const getColorName = (hex) => tinycolor(hex).toName() || 'Unknown';
-
-
+    const getContrastColor = (hex) => tinycolor(hex).isLight() ? '#000' : '#fff';
+    const getColorName = (hex) => tinycolor(hex).toName() || 'Custom';
 
     return(
         <div className="color-picker-container">
             <h1>🎨 Enhanced Color Picker</h1>
-
-            <div className="color-display" style={{backgroundColor:color, color:getContrastColor(color)}} onClick={copyToClipboard} title="Click to copy HEX code">
-
-            <p>{color} | {tinycolor(color).toRgbString()} | {getColorName(color)}</p>
-            </div>
-
-            <label>Pick a Color: </label>
-            <input type="color" value={color} onChange={handleColorChange}></input>
-
-            <div>
-                <button onClick={generateRandomColor}>✨Random Color</button>
-                <button onClick={toggleFavorites}>{Favorites.includes(color)? '⭐Unfavorite' : '🌟Favorite'}</button>
-
-                <button onClick={setDarkMode(!darkMode)}>{darkMode? '🌞 Light Mode' : '🌙 Dark Mode'}</button>
-            </div>
-
-
-            <h3>Recent Colors</h3>
-            <div style={{display: "flex", gap: "10px"}}>
-                {colorHistory.map((c, index) => (   
-                    //.map() is used to loop over the history array. 'c' - color
-                    <button key = {index} style={{backgroundColor: c,width: "30px", height: "30px"}} onClick={() => setColor(c)}>
-                    </button>
-                ))} 
-            </div>
-
-
-            <h3>Favorites</h3>
-            <div style={{display:"flex", gap: "10px"}}>
-                {Favorites.map((fav,index) => (
-                    <button key={index} style={{backgroundColor: fav, width: "30px", height:"30px", border:"2px solid gold"}} onClick={() => setColor(fav)}></button>
-                ))}
+            
+            {/* Left Column - Main Color Picker */}
+            <div className="main-section">
+                <div 
+                    className="color-display" 
+                    style={{backgroundColor: color, color: getContrastColor(color)}} 
+                    onClick={copyToClipboard} 
+                    title="Click to copy HEX code"
+                >
+                    <p>{color} | {tinycolor(color).toRgbString()} | {getColorName(color)}</p>
                 </div>
-
-                <h3>Gradient View</h3>
-                <label>Second Color: </label>
-                <input type="color" value={color2} onChange={handleSecondColorChange}></input>
-                <div style={{width: "300px", height: "100px", borderRadius: "12px", border:"2px solid gray", margin:"1rem 0", background:`linear-gradient(90deg, ${color}, ${color2})`}}></div>
-
-                <p style={{fontFamily:"monospace"}}>CSS: <code>linear-gradient(90deg,{color},{color2})</code></p>
-
+                
+                <div className="color-controls">
+                    <label>Pick a Color: </label>
+                    <input type="color" value={color} onChange={handleColorChange}></input>
+                </div>
+                
+                <div className="action-buttons">
+                    <button onClick={generateRandomColor}>✨ Random Color</button>
+                    <button onClick={toggleFavorites}>
+                        {favorites.includes(color) ? '⭐ Remove from Favorites' : '🌟 Add to Favorites'}
+                    </button>
+                    <button onClick={() => setDarkMode(!darkMode)}>
+                        {darkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
+                    </button>
+                </div>
             </div>
-
+            
+            {/* Right Column - Additional Features */}
+            <div className="features-section">
+                <div className="feature-card">
+                    <h3>🕒 Recent Colors</h3>
+                    <div className="color-grid">
+                        {colorHistory.map((c, index) => (
+                            <button 
+                                key={index} 
+                                className="color-box"
+                                style={{backgroundColor: c}}
+                                onClick={() => setColor(c)}
+                                title={c}
+                            />
+                        ))}
+                    </div>
+                </div>
+                
+                <div className="feature-card">
+                    <h3>⭐ Favorites</h3>
+                    <div className="color-grid">
+                        {favorites.map((fav, index) => (
+                            <button 
+                                key={index} 
+                                className="color-box favorite-box"
+                                style={{backgroundColor: fav}}
+                                onClick={() => setColor(fav)}
+                                title={fav}
+                            />
+                        ))}
+                        {favorites.length === 0 && (
+                            <p>Add colors to your favorites!</p>
+                        )}
+                    </div>
+                </div>
+                
+                <div className="feature-card">
+                    <h3>🌈 Gradient View</h3>
+                    <div className="color-controls">
+                        <label>Second Color: </label>
+                        <input type="color" value={color2} onChange={handleSecondColorChange}></input>
+                    </div>
+                    
+                    <div 
+                        className="gradient-preview"
+                        style={{background: `linear-gradient(90deg, ${color}, ${color2})`}}
+                    />
+                    
+                    <p style={{fontFamily: "monospace"}}>
+                        CSS: <code>linear-gradient(90deg, {color}, {color2})</code>
+                    </p>
+                </div>
+            </div>
+        </div>
     );
-
 }
 
-
-export default ColorPicker
+export default ColorPicker;
