@@ -91,6 +91,11 @@ function ColorPicker(){
 
                 <h3>Gradient View</h3>
                 <label>Second Color: </label>
+                <input type="color" value={color2} onChange={handleSecondColorChange}></input>
+                <div style={{width: "300px", height: "100px", borderRadius: "12px", border:"2px solid gray", margin:"1rem 0", background:`linear-gradient(90deg, ${color}, ${color2})`}}></div>
+
+                <p style={{fontFamily:"monospace"}}>CSS: <code>linear-gradient(90deg,{color},{color2})</code></p>
+                
             </div>
 
     );
