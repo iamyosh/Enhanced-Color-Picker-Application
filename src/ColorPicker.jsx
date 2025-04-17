@@ -13,6 +13,10 @@ function ColorPicker(){
 
     const handleColorChange = (event) => setColor(event.target.value);
 
+    const handleSecondColorChange = (event) => setColor2(event.target.value);
+
+    const generateRandomColor = () => setColor()
+    
     const copyToClipboard = () => navigator.clipboard.writeText(color);
 
     const getContrastColor = (hex) => tinycolor(hex).isLight()? '#000' : '#fff';
