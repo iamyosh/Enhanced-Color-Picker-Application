@@ -19,7 +19,7 @@ function ColorPicker(){
     //set color history
     useEffect(() => {
         if(!colorHistory.includes(color)){
-            setColorHistory((prev) => [color, ...prev, slice(0,5)]);
+            setColorHistory((prev) => [color, ...prev, slice(0,4)]);
         }
     }, [color]);
 
@@ -74,7 +74,7 @@ function ColorPicker(){
 
             <h3>Recent Colors</h3>
             <div style={{display: "flex", gap: "10px"}}>
-                {history.map((c, index) => (   
+                {colorHistory.map((c, index) => (   
                     //.map() is used to loop over the history array. 'c' - color
                     <button key = {index} style={{backgroundColor: c,width: "30px", height: "30px"}} onClick={() => setColor(c)}>
                     </button>
@@ -95,7 +95,7 @@ function ColorPicker(){
                 <div style={{width: "300px", height: "100px", borderRadius: "12px", border:"2px solid gray", margin:"1rem 0", background:`linear-gradient(90deg, ${color}, ${color2})`}}></div>
 
                 <p style={{fontFamily:"monospace"}}>CSS: <code>linear-gradient(90deg,{color},{color2})</code></p>
-                
+
             </div>
 
     );
