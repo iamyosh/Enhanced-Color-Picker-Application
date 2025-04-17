@@ -15,6 +15,14 @@ function ColorPicker(){
         document.body.style.backgroundColor = darkMode ? "#222" : "#fff";
         document.body.style.color = darkMode ? "#eee" : "#000";}, [darkMode]);
 
+    //set color history
+    useEffect(() => {
+        if(!colorHistory.includes(color)){
+            setColorHistory((prev) => [color, ...prev, slice(0,5)]);
+        }
+    }, [color]);
+    
+
 
     const handleColorChange = (event) => setColor(event.target.value);
     const handleSecondColorChange = (event) => setColor2(event.target.value);
@@ -67,6 +75,11 @@ function ColorPicker(){
                     </button>
                 ))} 
             </div>
+
+        <div style={{ display: "flex", gap: "10px" }}>
+            {Favorites.map((fav, index) => (
+                <button key={index} style={{ backgroundColor: fav, width: "30px", height: "30px", border: "2px solid gold" }} onClick={() => setColor(fav)}/>
+                ))}
         </div>
 
     );
