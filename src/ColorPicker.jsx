@@ -59,7 +59,14 @@ function ColorPicker(){
             </div>
 
 
-            
+            <h3>Recent Colors</h3>
+            <div style={{display: "flex", gap: "10px"}}>
+                {history.map((c, index) => (   
+                    //.map() is used to loop over the history array. 'c' - color
+                    <button key = {index} style={{backgroundColor: c,width: "30px", height: "30px"}} onClick={() => setColor(c)}>
+                    </button>
+                ))} 
+            </div>
         </div>
 
     );
