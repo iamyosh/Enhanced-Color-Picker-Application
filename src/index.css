@@ -9,20 +9,30 @@ body {
 .color-picker-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1.4rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
     min-height: 100vh;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.7rem;
+    margin-bottom: 1rem;
     font-weight: 700;
     grid-column: 1 / -1;
-    border-bottom: 3px solid #eaeaea;
+    border-bottom: 3px solid #072f45;
     padding-bottom: 1rem;
+    font-family: cursive;
+    text-align: left;
+    background-color: rgb(165, 232, 234);
+    border-radius: 18px;
+}
+
+.text2{
+    font-size: 1.8rem;
+    padding-bottom: 0.3px;
+    font-family:'Times New Roman', Times, serif;
 }
 
 /* Left Column - Main Color Picker */
