@@ -55,7 +55,7 @@ function ColorPicker(){
 
     return(
         <div className="color-picker-container">
-            <h1>🎨 Enhanced Color Picker</h1>
+            <h1>🎨 Enhanced Color Picker <span className="text2">- right color right combination...</span></h1>
             
             {/* Left Column - Main Color Picker */}
             <div className="main-section">
