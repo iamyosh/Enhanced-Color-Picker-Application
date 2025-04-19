@@ -88,10 +88,8 @@ h1 {
 }
 
 .color-picker-box{
-    width: 69px;
-    height: 68px;
-    border: 5px solid rgb(149, 147, 177);
-    border-radius: 17px;
+    /*border: 5px solid rgb(149, 147, 177);*/
+    border-radius: 15px;
 }
 
 label {
@@ -103,8 +101,8 @@ label {
 input[type="color"] {
     width: 60px;
     height: 60px;
-    border: none;
-    border-radius: 12px;
+    border: 3px solid silver;
+    border-radius: 15px;
     cursor: pointer;
     background: none;
     padding: 0;
@@ -124,8 +122,9 @@ input[type="color"]::-webkit-color-swatch {
 .action-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 1.6rem;
     margin-top: 1rem;
+    margin-bottom: 40px;
 }
 
 button {
@@ -141,6 +140,7 @@ button {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    border: 2px solid silver;
 }
 
 button:hover {
