@@ -21,7 +21,7 @@ body {
 }
 
 h1 {
-    font-size: 2.7rem;
+    font-size: 2.8rem;
     margin-bottom: 1rem;
     font-weight: 700;
     grid-column: 1 / -1;
@@ -30,6 +30,10 @@ h1 {
     font-family: 'Great Vibes', cursive;
     text-align: left;
     border-radius: 18px;
+}
+
+.header-container{
+    text-align: left;
 }
 
 .text2{
@@ -93,7 +97,7 @@ h1 {
 }
 
 label {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 500;
     font-family: cursive;
 }
@@ -142,7 +146,7 @@ button {
     align-items: center;
     gap: 0.4rem;
     border: 2px solid silver;
-    margin-left: 37px;
+    margin-left: 30px;
 }
 
 button:hover {
@@ -154,26 +158,27 @@ button:hover {
 .features-section {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .feature-card {
-    background-color: #f8f9fa;
+    background-color: #3d3f40;
     border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 1.4rem;
+    box-shadow: 0 5px 15px rgba(84, 81, 81, 0.05);
     transition: all 0.3s ease;
+    font-family: cursive;
 }
 
 .feature-card:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 25px rgba(97, 93, 93, 0.08);
 }
 
 h3 {
     margin-top: 0;
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 580;
+    margin-bottom: 1.3rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -182,7 +187,7 @@ h3 {
 .color-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    gap: 10px;
+    gap: 12px;
 }
 
 .color-box {
@@ -223,7 +228,7 @@ h3 {
     height: 120px;
     border-radius: 16px;
     margin: 1rem 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(80, 77, 77, 0.1);
 }
 
 code {
