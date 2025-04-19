@@ -70,7 +70,7 @@ function ColorPicker(){
                 
                 <div className="color-controls">
                     <label>Pick a Color: </label>
-                    <input type="color" value={color} onChange={handleColorChange}></input>
+                    <span className="color-picker-box"><input type="color" value={color} onChange={handleColorChange}></input></span>
                 </div>
                 
                 <div className="action-buttons">
