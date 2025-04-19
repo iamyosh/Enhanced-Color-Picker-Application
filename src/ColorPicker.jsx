@@ -78,9 +78,7 @@ function ColorPicker(){
                     <button onClick={toggleFavorites}>
                         {favorites.includes(color) ? '⭐ Remove from Favorites' : '🌟 Add to Favorites'}
                     </button>
-                    <button onClick={() => setDarkMode(!darkMode)}>
-                        {darkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
-                    </button>
+                    
                 </div>
             </div>
             
