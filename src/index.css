@@ -93,7 +93,7 @@ h1 {
 }
 
 label {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 500;
     font-family: cursive;
 }
@@ -122,14 +122,15 @@ input[type="color"]::-webkit-color-swatch {
 .action-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.6rem;
+    gap: 2.3rem;
     margin-top: 1rem;
     margin-bottom: 40px;
 }
 
 button {
-    padding: 0.75rem 1.25rem;
-    font-size: 1rem;
+    padding: 0.80rem 1.40rem;
+    padding-left: 15px;
+    font-size: 1.1rem;
     border-radius: 12px;
     border: none;
     cursor: pointer;
@@ -139,8 +140,9 @@ button {
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     border: 2px solid silver;
+    margin-left: 37px;
 }
 
 button:hover {
