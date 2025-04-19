@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
     margin: 0;
@@ -21,7 +25,7 @@ h1 {
     margin-bottom: 1rem;
     font-weight: 700;
     grid-column: 1 / -1;
-    border-bottom: 3px solid #072f45;
+    border-bottom: 3px solid rgb(149, 147, 177);
     padding-bottom: 1rem;
     font-family: 'Great Vibes', cursive;
     text-align: left;
@@ -39,23 +43,25 @@ h1 {
 .main-section {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 1.5rem;
 }
 
 .color-display {
-    width: 100%;
+    width: 90%;
     aspect-ratio: 1 / 1;
     display:flex;
     justify-content: center;
     align-items: center;
     border-radius: 350px;
-    box-shadow: 0 15px 30px rgba(99, 97, 97, 0.1);
+    box-shadow: 0 15px 30px rgba(91, 89, 89, 0.1);
     transition: all 0.5s ease;
     cursor: pointer;
     text-align:center;
     padding: 0.1rem;
     position: relative;
     overflow: hidden;
+    border: 6px solid rgb(149, 147, 176);
 }
 
 .color-display:hover {
@@ -77,8 +83,15 @@ h1 {
 .color-controls {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     margin: 1rem 0;
+}
+
+.color-picker-box{
+    width: 69px;
+    height: 69px;
+    border: 5px solid rgb(149, 147, 177);
+    border-radius: 17px;
 }
 
 label {
