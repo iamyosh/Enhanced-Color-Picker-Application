@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import tinycolor from "tinycolor2";
+import bg from "./assets/background-image2.jpg"
 
 function ColorPicker(){
     const [color, setColor] = useState("#FFFFFF");
@@ -54,6 +55,13 @@ function ColorPicker(){
     const getColorName = (hex) => tinycolor(hex).toName() || 'Custom';
 
     return(
+        <div className= "background-wrap" style={{
+            backgroundImage: `url(${bg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            height: '120vh',
+    }}>
+
         <div className="color-picker-container">
             <h1>🎨 Enhanced Color Picker <span className="text2">- "every color tells a story"...</span></h1>
             
@@ -69,7 +77,7 @@ function ColorPicker(){
                 </div>
                 
                 <div className="color-controls">
-                    <label>Pick a Color: </label>
+                    <label>Pick a Color (First Color): </label>
                     <span className="color-picker-box"><input type="color" value={color} onChange={handleColorChange}></input></span>
                 </div>
                 
@@ -134,6 +142,7 @@ function ColorPicker(){
                     </p>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
