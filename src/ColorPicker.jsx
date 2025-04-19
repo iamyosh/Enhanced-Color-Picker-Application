@@ -6,7 +6,7 @@ function ColorPicker(){
     const [color2, setColor2] = useState("#000000");
     const [colorHistory, setColorHistory] = useState([]);
     const [favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem("Favorites")) || []);
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);
     
     // Toggle Dark mode/Light mode
     useEffect(() => {
@@ -55,7 +55,7 @@ function ColorPicker(){
 
     return(
         <div className="color-picker-container">
-            <h1>🎨 Enhanced Color Picker <span className="text2">- right color right combination...</span></h1>
+            <h1>🎨 Enhanced Color Picker <span className="text2">- "because every color tells a story"...</span></h1>
             
             {/* Left Column - Main Color Picker */}
             <div className="main-section">
