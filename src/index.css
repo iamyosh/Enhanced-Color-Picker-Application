@@ -23,16 +23,16 @@ h1 {
     grid-column: 1 / -1;
     border-bottom: 3px solid #072f45;
     padding-bottom: 1rem;
-    font-family: cursive;
+    font-family: 'Great Vibes', cursive;
     text-align: left;
-    background-color: rgb(165, 232, 234);
     border-radius: 18px;
 }
 
 .text2{
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     padding-bottom: 0.3px;
-    font-family:'Times New Roman', Times, serif;
+    font-family:'Pacifico', cursive;
+    font-style: italic;
 }
 
 /* Left Column - Main Color Picker */
@@ -45,15 +45,15 @@ h1 {
 .color-display {
     width: 100%;
     aspect-ratio: 1 / 1;
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 350px;
+    box-shadow: 0 15px 30px rgba(99, 97, 97, 0.1);
+    transition: all 0.5s ease;
     cursor: pointer;
-    text-align: center;
-    padding: 1rem;
+    text-align:center;
+    padding: 0.1rem;
     position: relative;
     overflow: hidden;
 }
