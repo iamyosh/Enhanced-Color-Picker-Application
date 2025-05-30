@@ -19,17 +19,14 @@ A simple and interactive color generation app built with **React.js**, designed 
 - 📱 Responsive layout for mobile and desktop
 
 
-## 🧰 Tech Stack
+🧰 Tech Stack
 
 - **React.js**
 - **JavaScript**
 - **HTML**
 - **CSS**
 
+  
+📸 Screenshot
 
-## 📸 Screenshots
-
-> *(You can add a screenshot or GIF here later)*
-
----
-
+![App Screenshot](./assets/screenshot.png)
