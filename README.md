@@ -1,4 +1,4 @@
-🎨 Enhanced Color Picker Application
+Enhanced Color Picker Application
 
 A simple and interactive color generation app built with **React.js**, designed to help users explore random colors, view their hex codes, and copy them with ease. This project is part of my journey to learn React and apply core concepts like components, props, hooks, and dynamic styling.
 
@@ -10,16 +10,16 @@ A simple and interactive color generation app built with **React.js**, designed 
 
 
 
-🚀 Features
+Features
 
-- 🔄 Generate random colors with one click
-- 📋 Copy the hex code of a color to the clipboard
-- 🎨 View color history in real-time
-- 🌗 Explore different shades using the gradient option
-- 📱 Responsive layout for mobile and desktop
+- Generate random colors with one click
+- Copy the hex code of a color to the clipboard
+- View color history in real-time
+- Explore different shades using the gradient option
+- Responsive layout for mobile and desktop
 
 
-🧰 Tech Stack
+Tech Stack
 
 - **React.js**
 - **JavaScript**
