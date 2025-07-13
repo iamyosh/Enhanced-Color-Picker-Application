@@ -10,7 +10,7 @@ A simple and interactive color generation app built with **React.js**, designed 
 
 
 
-Features
+*Features*
 
 - Generate random colors with one click
 - Copy the hex code of a color to the clipboard
@@ -19,7 +19,7 @@ Features
 - Responsive layout for mobile and desktop
 
 
-Tech Stack
+*Tech Stack*
 
 - **React.js**
 - **JavaScript**
