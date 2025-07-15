@@ -14,6 +14,7 @@ A simple and interactive color generation app built with **React.js**, designed 
 - Responsive layout for mobile and desktop
 <br>
 <br>
+
 🛠 *Tech Stack*
 
 
